@@ -94,3 +94,16 @@ export function tirarPontoTurma(turma: Array<AlunoClasse>, pontoNegativo: number
 
     return turmaNegativa
 }
+
+export function mostraArray() {
+    const cliente1 = ['Stefan','Ken']
+//  const cliente2 = cliente1       //Referencia
+    const cliente2 = [...cliente1]
+
+    cliente1.forEach(nome => cliente2.push(nome))
+
+    cliente2.push('Ricardo')
+
+    console.log(cliente1)
+    console.log(cliente2)
+}
