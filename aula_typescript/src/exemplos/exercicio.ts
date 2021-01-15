@@ -51,5 +51,24 @@ export function filtroPorCodigo(api: informacoesPedido, codigo: string) {
 }
 
 export function buscaProdutoPorNome(api: informacoesPedido, produto: string) {
+    const { items } = api
     return api.items.filter((items) => items.descricao === produto)
+
+//    return buscaItem<itemsPedido>(items, 'descricao', produto)
 }
+
+/* Exemplo - 01
+function buscaItem(items: any, atributo: string, chave: string) {
+    return items.find((item: any) => item[atributo] === chave)
+}
+*/ 
+/* 
+// Exemplo - 02 - Generico
+function buscaItem<T>(
+    items:  Array<T>,
+    atributo: keyof T,
+    chave: any
+) {
+    return items.find((item: any) => item[atributo] === chave)
+}
+*/ 

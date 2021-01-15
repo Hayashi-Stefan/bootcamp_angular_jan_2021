@@ -59,6 +59,7 @@ const turma: Turma = {
 imprimeTurma(turma)
 */
 
+//Exercicios - 14/01/2021
 const api = {
     numeroPedido: '0001',
     cliente: 'Alvaro',
@@ -72,11 +73,11 @@ const api = {
 };
 
 precoMedio(api)
-
 produtoMaisBarato(api)
-
 const produtoFiltrado = filtroPorCodigo(api, '0001')
 console.log(`O produto com o codigo: ${produtoFiltrado[0].produto}, nome: ${produtoFiltrado[0].descricao}, valor: R$${produtoFiltrado[0].preco}`);
-
 const dadosProduto = buscaProdutoPorNome(api, 'ATARI')
 console.log(`O produto ${dadosProduto[0].descricao} tem o valor de R$ ${dadosProduto[0].preco}`);
+
+//Correção Exercicios - 15/01/2021
+
