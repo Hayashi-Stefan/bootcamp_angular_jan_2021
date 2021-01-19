@@ -9,7 +9,7 @@ import { buscaProdutoPorNome, filtroPorCodigo, precoMedio, produtoMaisBarato } f
 /*
 const notas = [5,10,7]
 const somaDasNotas = somaNotas(notas)
-console.log('A soma é: ' + somaDasNotas);
+console.log('A soma ï¿½: ' + somaDasNotas);
 
 const turma = montaTurma()
 const novaTurma = filtraAlunoPorNota(turma, 8)
@@ -52,7 +52,7 @@ const turma: Turma = {
     professor: {
         nome: 'Stefan',
         materia: 'Artes',
-//        ehLegal: () => 'É sim'
+//        ehLegal: () => 'ï¿½ sim'
     }
 }
 
@@ -78,6 +78,3 @@ const produtoFiltrado = filtroPorCodigo(api, '0001')
 console.log(`O produto com o codigo: ${produtoFiltrado[0].produto}, nome: ${produtoFiltrado[0].descricao}, valor: R$${produtoFiltrado[0].preco}`);
 const dadosProduto = buscaProdutoPorNome(api, 'ATARI')
 console.log(`O produto ${dadosProduto[0].descricao} tem o valor de R$ ${dadosProduto[0].preco}`);
-
-//Correção Exercicios - 15/01/2021
-
