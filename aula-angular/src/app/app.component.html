@@ -4,4 +4,8 @@
   Minha primeira página {{ title }}
 </p>
 
-<app-exemplos-angular></app-exemplos-angular>
+<app-exemplos-angular 
+  [nomeAluno]="nome"
+  (selecaoTurma)="alertaTurma($event)"
+  [listaAlunos]="alunos"
+></app-exemplos-angular>
