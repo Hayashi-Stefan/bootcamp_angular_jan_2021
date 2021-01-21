@@ -10,9 +10,10 @@
 
 <input type="text" [value]="turma" (blur)=atualizaTurma($event.target) #inputTurma >
 
-<button (click)="mostraTurma()">Abrir Lista</button>
+<button (click)="mostraTurma()"> {{acaoBota}} </button>
 
-<ng-template [ngIf]=mostraLista>
+<!-- <ng-template [ngIf]=mostraLista> -->
+<div *ngIf="mostraLista; else Lista">
     <div *ngIf="listaAlunos?.length; else nenhumaLista">
         <ul>
             <li *ngFor="let aluno of listaAlunos"> 
@@ -21,9 +22,14 @@
             </li>
         </ul>
     </div>
-</ng-template>
+</div>
+<!-- </ng-template> -->
 
 <!-- <p *ngIf="!listaAlunos"> Lista indisponível </p> -->
 <ng-template #nenhumaLista>
     <p> Lista indisponível </p> 
+</ng-template>
+
+<ng-template #Lista>
+    <p> Lista fechada</p> 
 </ng-template>

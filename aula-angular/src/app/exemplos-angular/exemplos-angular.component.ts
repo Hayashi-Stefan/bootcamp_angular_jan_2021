@@ -1,3 +1,4 @@
+import { ThrowStmt } from '@angular/compiler';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Alunos } from '../alunos';
 
@@ -12,7 +13,7 @@ export class ExemplosAngularComponent {
   @Input() listaAlunos!: Alunos
 
   turma = 'Angular'
-
+  acaoBota: string = 'Abrir Lista'
   mostraLista = false;
 
   @Output() selecaoTurma = new EventEmitter<string>()
@@ -25,5 +26,7 @@ export class ExemplosAngularComponent {
 
   mostraTurma() {
     this.mostraLista = !this.mostraLista
+
+    this.mostraLista ? this.acaoBota = 'Fechar Lista' : this.acaoBota = 'Abrir Lista'
   }
 }
