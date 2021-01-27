@@ -50,4 +50,12 @@ export class ClientesService {
   deleteCliente(id: string): Observable<Cliente> {
     return this.http.delete<Cliente>(`${URL}/${id}`)
   }
+
+  editaCliente(id: string, cliente: Cliente): Observable<Cliente> {
+    return this.http.put<Cliente>(`${URL}/${id}`, cliente)
+  }
+
+  incluirCliente(cliente: Cliente): Observable<Cliente> {
+    return this.http.post<Cliente>(`${URL}`, cliente)
+  }
 }

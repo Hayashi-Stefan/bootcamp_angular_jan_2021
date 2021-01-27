@@ -3,7 +3,7 @@ export interface EstadoAPI {
   hasNext: boolean;
 }
 
-type Estados = Array<Estado>;
+export type Estados = Array<Estado>;
 
 export interface Estado {
   id: string;

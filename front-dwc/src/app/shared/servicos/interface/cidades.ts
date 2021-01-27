@@ -3,7 +3,7 @@ export interface CidadeAPI {
   hasNext: boolean;
 }
 
-type Cidades = Array<Cidade>;
+export type Cidades = Array<Cidade>;
 
 export interface Cidade {
   id: string;
