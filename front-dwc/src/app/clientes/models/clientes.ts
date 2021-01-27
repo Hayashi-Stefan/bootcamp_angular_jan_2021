@@ -4,7 +4,6 @@ export interface ClientesAPI {
 }
 
 export type Clientes = Array<Cliente>
-
 export interface Cliente {
   id: string;
   nome: string;

@@ -1,12 +1,14 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import {
   PoBreadcrumb,
   PoPageAction,
   PoTableAction,
   PoTableColumn,
 } from '@po-ui/ng-components';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { ClientesService } from './clientes.service';
+import { Cliente, Clientes } from './models/clientes';
 
 @Component({
   selector: 'app-clientes',
@@ -14,28 +16,21 @@ import { ClientesService } from './clientes.service';
   styleUrls: ['./clientes.component.css'],
 })
 export class ClientesComponent implements OnInit, OnDestroy {
-  private subscriptions = new Subscription();
+//  private subscriptions = new Subscription();
 
   actions: Array<PoPageAction> = [
-    {
-      label: 'Incluir',
-      url: 'home/clientes/new',
-    },
+    { label: 'Incluir', url: 'home/clientes/new' }
   ];
 
   breadCrumb: PoBreadcrumb = {
     items: [
-      {
-        label: 'Home',
-        link: '/home',
-      },
-      {
-        label: 'Cliente',
-      },
+      { label: 'Home', link: '/home' },
+      { label: 'Cliente' }
     ],
   };
 
-  items: any;
+//  items: any - Antigo items
+  items$: Observable<Clientes>;   // Novo items
 
   colunas: Array<PoTableColumn> = [
     { property: 'id', label: 'ID', type: 'string' },
@@ -45,31 +40,36 @@ export class ClientesComponent implements OnInit, OnDestroy {
   ];
 
   tableActions: Array<PoTableAction> = [
-    {
-      label: 'Visualizar',
-      action: this.visualizar.bind(this),
-    },
-    {
-      label: 'Editar',
-      action: this.editar.bind(this),
-    },
+    { label: 'Visualizar', action: this.visualizar.bind(this) },
+    { label: 'Editar', action: this.editar.bind(this) }
   ];
 
-  constructor(private clienteService: ClientesService) {}
+  constructor(
+    private clienteService: ClientesService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
+    /*
     this.subscriptions.add(
       this.clienteService.getClientes().subscribe((items) => {
         this.items = items;
       })
     );
+    */
+
+    this.items$ = this.clienteService.getClientes()
   }
 
   ngOnDestroy(): void {
-    this.subscriptions.unsubscribe();
+//    this.subscriptions.unsubscribe();
   }
 
-  visualizar() {}
+  visualizar(cliente: Cliente) {
+    this.router.navigate(['home/clientes/view', cliente.id])
+  }
 
-  editar() {}
+  editar(cliente: Cliente) {
+    this.router.navigate(['home/clientes/edit', cliente.id])
+  }
 }
