@@ -5,18 +5,19 @@ import { ProdutosComponent } from './produtos.component';
 import { VisualizarProdutosComponent } from './visualizar-produtos/visualizar-produtos.component';
 
 const routes: Routes = [
+  { path: '', component: ProdutosComponent },
   {
-    path: '', component: ProdutosComponent
+    path: 'view/:id',
+    component: VisualizarProdutosComponent,
   },
   {
-    path: 'view/:id', component: VisualizarProdutosComponent
+    path: 'edit/:id',
+    component: FormularioProdutosComponent,
   },
   {
-    path: 'edit/:id', component: FormularioProdutosComponent
+    path: 'new',
+    component: FormularioProdutosComponent,
   },
-  {
-    path: 'new', component: FormularioProdutosComponent
-  }
 ];
 
 @NgModule({

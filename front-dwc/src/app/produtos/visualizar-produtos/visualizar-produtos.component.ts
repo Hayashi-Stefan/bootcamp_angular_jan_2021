@@ -24,7 +24,7 @@ export class VisualizarProdutosComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe((params) => this.titulo = params.id ? `Visualizando Produto ${params.descricao}` : `Visualizando`)
+    this.activatedRoute.params.subscribe((params) => this.titulo = params.id ? `Visualizando Produto ${params.id}` : `Visualizando`)
   }
 
 }

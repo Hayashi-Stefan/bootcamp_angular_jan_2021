@@ -8,7 +8,7 @@ import { PoPageDynamicTableActions, PoPageDynamicTableField } from '@po-ui/ng-te
 })
 export class ProdutosComponent{
   actions: PoPageDynamicTableActions = {
-    detail:'home/produtos/view/:id',
+    detail: 'home/produtos/view/:id',
     edit: 'home/produtos/edit/:id',
     new: 'home/produtos/new',
     remove: true,
@@ -16,7 +16,7 @@ export class ProdutosComponent{
 
   fields: Array<PoPageDynamicTableField> = [
     { property: 'id', key: true },
-    { property: 'descricao', label: 'Descrição', filter: true},
-    { property: 'preco', label: 'Preço do Produto', type: 'number', filter: true},
+    { property: 'descricao', label: 'Descrição' },
+    { property: 'preco', label: 'Preço do Produto', type: 'currency' },
   ]
 }
